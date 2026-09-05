@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Broken Site — AI Freelancer QA</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Broken Site (for QA)</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="missing.html">Missing Page</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="forms">
+        <div class="card">
+          <h2>Register</h2>
+          <form id="registerForm" action="/register" method="post">
+            <label>Full name
+              <input id="fullName" name="fullName" type="text" required>
+            </label>
+
+            <label>Email
+              <input id="regEmail" name="email" type="text" placeholder="you@example.com">
+            </label>
+
+            <label>Password
+              <input id="regPassword" name="password" type="password">
+            </label>
+
+            <div class="message" id="registerMessage" aria-live="polite"></div>
+
+            <button id="registerSubmit" class="btn primary">Create account</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>Login</h2>
+          <form id="loginForm" action="/login" method="post">
+            <label>Username or Email
+              <input id="loginUser" name="user" type="text">
+            </label>
+
+            <label>Password
+              <input id="loginPass" name="password" type="password">
+            </label>
+
+            <div class="message" id="loginMessage" aria-live="polite"></div>
+
+            <button id="loginBtn" class="btn">Sign in</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="content">
+        <h2>Welcome</h2>
+        <p>This small site intentionally contains subtle issues for QA testing.</p>
+        <button class="btn cta">Primary Action</button>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Test site — do not use in production.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

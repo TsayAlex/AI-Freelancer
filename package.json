@@ -1,0 +1,24 @@
+{
+  "name": "ai-freelancer",
+  "version": "1.0.0",
+  "description": "AI-Freelancer automated QA portfolio project",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "qa:test": "playwright test tests/broken-site.spec.js --reporter=list",
+    "qa:report": "node tests/generate-report.js",
+    "qa": "powershell -ExecutionPolicy Bypass -File ./run-qa.ps1"
+  },
+  "keywords": [
+    "qa",
+    "playwright",
+    "automation",
+    "testing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
+  }
+}

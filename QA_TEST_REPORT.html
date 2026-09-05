@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+  AI-Freelancer QA Report
+</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f7fb;
+  color: #18212f;
+  font-family:
+    Inter,
+    Segoe UI,
+    Arial,
+    sans-serif;
+}
+
+.container {
+  width: min(1200px, 94%);
+  margin: 0 auto;
+  padding: 40px 0 80px;
+}
+
+.hero {
+  background:
+    linear-gradient(
+      135deg,
+      #172033,
+      #273b63
+    );
+
+  color: white;
+
+  border-radius: 20px;
+
+  padding: 34px;
+
+  box-shadow:
+    0 18px 50px
+    rgba(14, 28, 51, 0.18);
+
+  margin-bottom: 28px;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.hero h1 {
+  margin: 0 0 10px;
+  font-size: 34px;
+}
+
+.hero p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 16px;
+}
+
+.status {
+  min-width: 120px;
+  text-align: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+.status-fail {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.status-pass {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-warning {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 16px;
+
+  margin: 26px 0;
+}
+
+.metric {
+  background: white;
+
+  border-radius: 16px;
+
+  padding: 22px;
+
+  box-shadow:
+    0 8px 28px
+    rgba(21, 34, 50, 0.08);
+}
+
+.metric-label {
+  font-size: 13px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.metric-value {
+  margin-top: 8px;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.section-title {
+  margin: 38px 0 18px;
+  font-size: 24px;
+}
+
+.bug-card {
+  background: white;
+
+  border-radius: 18px;
+
+  padding: 28px;
+
+  margin-bottom: 26px;
+
+  box-shadow:
+    0 10px 32px
+    rgba(21, 34, 50, 0.08);
+
+  border:
+    1px solid #e5eaf1;
+}
+
+.bug-header {
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    flex-start;
+
+  gap: 20px;
+
+  padding-bottom: 20px;
+
+  border-bottom:
+    1px solid #e5eaf1;
+}
+
+.bug-id {
+  font-size: 13px;
+  font-weight: 800;
+  color: #dc2626;
+  letter-spacing: 0.7px;
+}
+
+.bug-header h2 {
+  margin:
+    6px 0 6px;
+
+  font-size:
+    24px;
+}
+
+.bug-area {
+  color:
+    #64748b;
+}
+
+.severity {
+  padding:
+    8px 14px;
+
+  border-radius:
+    999px;
+
+  font-size:
+    13px;
+
+  font-weight:
+    800;
+}
+
+.severity-major {
+  background:
+    #fee2e2;
+
+  color:
+    #b91c1c;
+}
+
+.details-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    18px;
+
+  margin-top:
+    22px;
+}
+
+.detail-box {
+  background:
+    #f8fafc;
+
+  border-radius:
+    12px;
+
+  padding:
+    18px;
+
+  border:
+    1px solid #e5eaf1;
+}
+
+.actual-box {
+  border-left:
+    4px solid #dc2626;
+}
+
+.section-label {
+  font-size:
+    12px;
+
+  font-weight:
+    800;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.7px;
+
+  color:
+    #64748b;
+
+  margin-bottom:
+    8px;
+}
+
+.detail-box p {
+  margin:
+    0;
+
+  line-height:
+    1.6;
+}
+
+.steps-block {
+  margin-top:
+    22px;
+}
+
+.steps-block ol {
+  margin:
+    8px 0 0;
+
+  padding-left:
+    22px;
+
+  line-height:
+    1.8;
+}
+
+.evidence-block {
+  margin-top:
+    24px;
+}
+
+.evidence-image {
+  display:
+    block;
+
+  width:
+    100%;
+
+  max-height:
+    680px;
+
+  object-fit:
+    contain;
+
+  background:
+    #f8fafc;
+
+  border:
+    1px solid #dbe3ec;
+
+  border-radius:
+    14px;
+
+  margin-top:
+    10px;
+}
+
+.footer {
+  margin-top:
+    40px;
+
+  text-align:
+    center;
+
+  color:
+    #64748b;
+
+  font-size:
+    14px;
+}
+
+.meta {
+  margin-top:
+    16px;
+
+  color:
+    #94a3b8;
+
+  font-size:
+    13px;
+}
+
+@media (
+  max-width: 800px
+) {
+
+  .metrics {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .details-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .hero-top {
+    flex-direction:
+      column;
+  }
+}
+
+@media (
+  max-width: 520px
+) {
+
+  .metrics {
+    grid-template-columns:
+      1fr;
+  }
+
+  .container {
+    width:
+      92%;
+  }
+
+  .hero {
+    padding:
+      24px;
+  }
+
+  .bug-card {
+    padding:
+      20px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <section class="hero">
+
+    <div class="hero-top">
+
+      <div>
+
+        <h1>
+          AI-Freelancer QA Report
+        </h1>
+
+        <p>
+          Automated Black-box QA • Playwright
+        </p>
+
+        <div class="meta">
+          Generated: 2026-09-05
+        </div>
+
+      </div>
+
+      <div class="status status-fail">
+        FAIL
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="metrics">
+
+    <div class="metric">
+
+      <div class="metric-label">
+        Total Issues
+      </div>
+
+      <div class="metric-value">
+        3
+      </div>
+
+    </div>
+
+    <div class="metric">
+
+      <div class="metric-label">
+        Major
+      </div>
+
+      <div class="metric-value">
+        3
+      </div>
+
+    </div>
+
+    <div class="metric">
+
+      <div class="metric-label">
+        Critical
+      </div>
+
+      <div class="metric-value">
+        0
+      </div>
+
+    </div>
+
+    <div class="metric">
+
+      <div class="metric-label">
+        QA Status
+      </div>
+
+      <div class="metric-value">
+        FAIL
+      </div>
+
+    </div>
+
+  </section>
+
+  <h2 class="section-title">
+    Detailed Findings
+  </h2>
+
+  
+          <article class="bug-card">
+
+            <div class="bug-header">
+              <div>
+                <div class="bug-id">
+                  BUG-001
+                </div>
+
+                <h2>
+                  About link points to a missing page
+                </h2>
+
+                <div class="bug-area">
+                  Navigation
+                </div>
+              </div>
+
+              <div class="severity severity-major">
+                Major
+              </div>
+            </div>
+
+            <div class="details-grid">
+
+              <div class="detail-box">
+                <div class="section-label">
+                  Expected
+                </div>
+
+                <p>
+                  Link &quot;About&quot; should open successfully
+                </p>
+              </div>
+
+              <div class="detail-box actual-box">
+                <div class="section-label">
+                  Actual
+                </div>
+
+                <p>
+                  Navigation failed because &quot;about.html&quot; could not be opened.
+                </p>
+              </div>
+
+            </div>
+
+            <div class="steps-block">
+
+              <div class="section-label">
+                Reproduction Steps
+              </div>
+
+              <ol>
+                <li>Open the main page.</li><li>Click About.</li><li>Observe the navigation failure.</li>
+              </ol>
+
+            </div>
+
+            
+              <div class="evidence-block">
+                <div class="section-label">Screenshot Evidence</div>
+                <img
+                  src="evidence/BUG-001.png"
+                  alt="BUG-001 screenshot"
+                  class="evidence-image"
+                />
+              </div>
+            
+
+          </article>
+        
+          <article class="bug-card">
+
+            <div class="bug-header">
+              <div>
+                <div class="bug-id">
+                  BUG-002
+                </div>
+
+                <h2>
+                  Missing Page link points to a missing page
+                </h2>
+
+                <div class="bug-area">
+                  Navigation
+                </div>
+              </div>
+
+              <div class="severity severity-major">
+                Major
+              </div>
+            </div>
+
+            <div class="details-grid">
+
+              <div class="detail-box">
+                <div class="section-label">
+                  Expected
+                </div>
+
+                <p>
+                  Link &quot;Missing Page&quot; should open successfully
+                </p>
+              </div>
+
+              <div class="detail-box actual-box">
+                <div class="section-label">
+                  Actual
+                </div>
+
+                <p>
+                  Navigation failed because &quot;missing.html&quot; could not be opened.
+                </p>
+              </div>
+
+            </div>
+
+            <div class="steps-block">
+
+              <div class="section-label">
+                Reproduction Steps
+              </div>
+
+              <ol>
+                <li>Open the main page.</li><li>Click Missing Page.</li><li>Observe the navigation failure.</li>
+              </ol>
+
+            </div>
+
+            
+              <div class="evidence-block">
+                <div class="section-label">Screenshot Evidence</div>
+                <img
+                  src="evidence/BUG-002.png"
+                  alt="BUG-002 screenshot"
+                  class="evidence-image"
+                />
+              </div>
+            
+
+          </article>
+        
+          <article class="bug-card">
+
+            <div class="bug-header">
+              <div>
+                <div class="bug-id">
+                  BUG-003
+                </div>
+
+                <h2>
+                  Malformed email is accepted
+                </h2>
+
+                <div class="bug-area">
+                  Registration
+                </div>
+              </div>
+
+              <div class="severity severity-major">
+                Major
+              </div>
+            </div>
+
+            <div class="details-grid">
+
+              <div class="detail-box">
+                <div class="section-label">
+                  Expected
+                </div>
+
+                <p>
+                  Malformed email should be rejected
+                </p>
+              </div>
+
+              <div class="detail-box actual-box">
+                <div class="section-label">
+                  Actual
+                </div>
+
+                <p>
+                  Malformed email is treated as valid
+                </p>
+              </div>
+
+            </div>
+
+            <div class="steps-block">
+
+              <div class="section-label">
+                Reproduction Steps
+              </div>
+
+              <ol>
+                <li>Open the registration form.</li><li>Enter not-an-email.</li><li>Submit the form.</li><li>Observe that the malformed email is accepted.</li>
+              </ol>
+
+            </div>
+
+            
+              <div class="evidence-block">
+                <div class="section-label">Screenshot Evidence</div>
+                <img
+                  src="evidence/BUG-003.png"
+                  alt="BUG-003 screenshot"
+                  class="evidence-image"
+                />
+              </div>
+            
+
+          </article>
+        
+
+  <div class="footer">
+
+    Generated automatically by
+    <strong>AI-Freelancer QA Automation</strong>
+
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Playwright test output
+test-results/
+playwright-report/
+
+# Temporary / generated logs
+QA_RUN_OUTPUT.txt
+QA_RUN_OUTPUT_NEW.txt
+LAST_TEST.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+
+# Environment files
+.env
+.env.*
+
+# Temporary files
+*.tmp
+*.log
+
+# Keep portfolio evidence and generated reports
+!evidence/
+!evidence/*.png
+!QA_TEST_REPORT.md
+!QA_TEST_REPORT.html
+# Local portable development tools
+tools/

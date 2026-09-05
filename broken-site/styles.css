@@ -1,0 +1,31 @@
+:root{
+  --bg:#f7f7fb;
+  --card:#ffffff;
+  --accent:#2563eb;
+  --muted:#6b7280;
+}
+*{box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#111;margin:0}
+.site-header{background:var(--card);padding:16px;border-bottom:1px solid #e5e7eb}
+.site-header h1{margin:0 0 8px 0}
+nav ul{list-style:none;padding:0;margin:0;display:flex;gap:12px}
+nav a{color:var(--accent);text-decoration:none}
+.container{display:flex;gap:20px;padding:20px;align-items:flex-start}
+.forms{flex:1;display:flex;flex-direction:column;gap:16px}
+.card{background:var(--card);padding:16px;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+.card h2{margin-top:0}
+label{display:block;margin-bottom:8px}
+input[type=text],input[type=password]{width:100%;padding:8px;border:1px solid #d1d5db;border-radius:4px}
+.message{min-height:24px;color:var(--muted);margin:8px 0}
+.btn{background:#fff;border:1px solid #d1d5db;padding:10px 14px;border-radius:6px;cursor:pointer}
+.btn.primary{background:var(--accent);color:#fff;border-color:transparent}
+.content{width:320px}
+.cta{display:inline-block;padding:12px 20px;border-radius:8px;background:#10b981;color:#fff;border:none}
+.site-footer{padding:12px 20px;background:transparent;color:var(--muted);border-top:1px solid #e5e7eb}
+
+/* Responsive tweak: at mobile widths the CTA intentionally grows wide */
+@media (max-width:480px){
+  .container{flex-direction:column}
+  .content{width:100%}
+  .cta{width:120%; /* intentional overflow on mobile */}
+}
