@@ -1,5 +1,5 @@
 # 🧪 AI-Freelancer QA Automation
-
+[![QA Automation](https://github.com/TsayAlex/AI-Freelancer/actions/workflows/qa.yml/badge.svg)](https://github.com/TsayAlex/AI-Freelancer/actions/workflows/qa.yml)
 **Automated Black-Box Testing • Playwright • JavaScript • Screenshot Evidence • Automated Reporting**
 
 A portfolio QA automation project that demonstrates a complete testing workflow for a deliberately broken web application.
