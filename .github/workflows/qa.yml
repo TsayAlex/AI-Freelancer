@@ -31,3 +31,17 @@ jobs:
 
       - name: Run QA automation
         run: npx playwright test tests/broken-site.spec.js
+
+      - name: Generate QA reports
+        run: node ./tests/generate-report.js
+
+      - name: Upload QA artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-results
+          path: |
+            QA_TEST_REPORT.md
+            QA_TEST_REPORT.html
+            evidence/
+            test-results/
+          if-no-files-found: warn
