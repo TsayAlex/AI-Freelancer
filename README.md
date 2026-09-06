@@ -476,11 +476,11 @@ It is designed to demonstrate practical entry-level skills relevant to roles suc
 | Markdown report | ✅ Working |
 | HTML QA dashboard | ✅ Working |
 | One-command workflow | ✅ Working |
-| GitHub Actions / CI | 🔜 Planned |
+| GitHub Actions / CI | ✅ Working |
 
 ### Version
 
-**v1.3 — Portfolio Edition**
+**v1.4 — GitHub Actions CI**
 
 ### Current Test Target
 
