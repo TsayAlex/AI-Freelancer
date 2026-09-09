@@ -1,15 +1,16 @@
 # 🧪 AI-Freelancer QA Portfolio
 
-[![QA Automation](https://github.com/TsayAlex/AI-Freelancer/actions/workflows/qa.yml/badge.svg)](https://github.com/TsayAlex/AI-Freelancer/actions/workflows/qa.yml)
+**Manual Software Testing • REST API Testing • Postman • QA Automation • Playwright • JavaScript • GitHub Actions • Bug Reporting • Evidence Collection**
 
-**Manual Software Testing • QA Automation • Playwright • JavaScript • GitHub Actions • Bug Reporting • Evidence Collection**
+A practical QA portfolio demonstrating entry-level Quality Assurance skills through **manual software testing**, **REST API testing**, and **browser test automation**.
 
-A practical QA portfolio demonstrating both **Manual Software Testing** and **QA Automation** skills.
+The portfolio includes test planning, test case design, bug reporting, evidence collection, API validation, Playwright automation, automated reporting, and CI workflow configuration.
 
-This repository contains two QA projects:
+This repository contains **three QA portfolio projects**:
 
-1. **Automated black-box testing** of a deliberately broken website.
-2. **Manual black-box testing** of the SauceDemo e-commerce application.
+1. 🤖 **Automated QA Testing** — Playwright automation against a deliberately broken website.
+2. 🛒 **SauceDemo Manual QA Testing** — manual black-box testing of an e-commerce application.
+3. 🔌 **REST API Testing with Postman** — manual testing of the JSONPlaceholder REST API.
 
 ---
 
@@ -17,69 +18,64 @@ This repository contains two QA projects:
 
 ## Overview
 
-This project demonstrates automated black-box testing using **Playwright**.
+Automated black-box testing using **Playwright** against a deliberately broken website.
 
-The QA workflow tests a deliberately broken local website, detects observable defects, captures evidence, saves the test output, and generates QA reports automatically.
+The workflow:
+
+- Executes browser tests.
+- Detects observable defects.
+- Captures screenshot evidence.
+- Generates Markdown and HTML QA reports.
+- Supports local execution and GitHub Actions CI.
 
 ## Technologies
 
 | Technology | Purpose |
-| --- | --- |
-| JavaScript | Test and report-generation logic |
+|---|---|
+| JavaScript | Test logic and report-generation logic |
 | Node.js | JavaScript runtime |
 | Playwright | Browser automation and black-box testing |
-| PowerShell | One-command local QA workflow |
-| GitHub Actions | CI execution on push / pull request |
+| PowerShell | Local one-command QA workflow |
+| GitHub Actions | CI workflow configuration |
 | Markdown | Structured QA documentation |
-| HTML / CSS | Visual QA report/dashboard |
+| HTML/CSS | Visual QA reports |
 | VS Code | Development environment |
 
 ## QA Automation Pipeline
 
 ```text
 Website
-  ↓
+   ↓
 Playwright
-  ↓
+   ↓
 Black-box Testing
-  ↓
+   ↓
 Defect Detection
-  ↓
-Severity Classification
-  ↓
+   ↓
 Screenshot Evidence
-  ↓
-QA Log
-  ↓
-Report Generator
-  ↓
-Markdown + HTML QA Reports
+   ↓
+QA Reports
 ```
 
-## Detected Defects
-
-The automated test detected **3 Major defects**:
+## Defects Detected
 
 | ID | Area | Severity | Finding |
-| --- | --- | --- | --- |
-| BUG-001 | Navigation | Major | About link points to a missing page |
-| BUG-002 | Navigation | Major | Missing Page link points to a missing page |
-| BUG-003 | Registration | Major | Malformed email is accepted |
+|---|---|---|---|
+| BUG-001 | Navigation | Major | About page missing |
+| BUG-002 | Navigation | Major | Broken navigation link |
+| BUG-003 | Registration | Major | Invalid email accepted |
 
-## Automated QA Result
+## Results
 
 | Metric | Result |
-| --- | ---: |
-| Total Issues | 3 |
-| Critical | 0 |
-| Major | 3 |
-| Minor | 0 |
-| Trivial | 0 |
-| Tested Application Status | **FAIL** |
-| QA Automation Workflow | **WORKING** |
-| GitHub Actions / CI | **WORKING** |
+|---|---:|
+| Issues Found | 3 |
+| Major Bugs | 3 |
+| Tested Website | **FAIL** |
+| Automation Workflow | ✅ PASS |
+| GitHub Actions | Configured |
 
-> **Important:** `FAIL` describes the tested deliberately broken website. The QA automation workflow itself completes successfully.
+> **Important:** the **FAIL** status belongs to the intentionally broken test website, not to the automation workflow.
 
 ## Run Locally
 
@@ -89,28 +85,7 @@ From the project root in PowerShell:
 .\run-qa.ps1
 ```
 
-The workflow:
-
-1. runs the Playwright black-box test;
-2. captures supported defect evidence;
-3. saves the QA execution log;
-4. parses and deduplicates defects;
-5. calculates severity totals;
-6. determines the tested application's QA status;
-7. generates `QA_TEST_REPORT.md`;
-8. generates `QA_TEST_REPORT.html`.
-
-## Run Playwright Directly
-
-```powershell
-npx playwright test tests/broken-site.spec.js --reporter=list
-```
-
-## Generate Reports Separately
-
-```powershell
-node .\tests\generate-report.js
-```
+The workflow runs the Playwright tests, captures evidence, saves test output, and generates QA reports.
 
 Generated reports:
 
@@ -121,36 +96,32 @@ QA_TEST_REPORT.html
 
 ---
 
-# 🧑‍💻 Project 2 — SauceDemo Manual QA Testing
+# 🛒 Project 2 — SauceDemo Manual QA Testing
 
 ## Overview
 
-Manual black-box testing was performed on the **SauceDemo** e-commerce application.
+Manual black-box testing of the **SauceDemo** e-commerce application.
 
-The test set covers the main customer journey and several negative, validation, usability, and accessibility scenarios.
+The test set covers the main customer journey together with positive, negative, validation, usability, and accessibility scenarios.
 
-## Areas Tested
+## Test Coverage
 
-- Login with valid credentials
-- Invalid login behaviour
-- Empty login fields
-- Locked-out user behaviour
+- Login validation
+- Locked-out user
+- Invalid credentials
 - Product catalogue
 - Product sorting
-- Add product to cart
-- Add multiple products
-- Remove product from cart
-- Checkout with empty information
-- Checkout without postal code
-- Complete successful purchase
+- Shopping cart
+- Checkout validation
+- Successful purchase
 - Logout
 - Reset App State
-- Keyboard navigation
+- Keyboard accessibility
 
-## Manual Test Results
+## Manual QA Results
 
 | Metric | Result |
-| --- | ---: |
+|---|---:|
 | Total Test Cases | 15 |
 | Passed | 14 |
 | Failed | 1 |
@@ -159,37 +130,101 @@ The test set covers the main customer journey and several negative, validation, 
 | Pass Rate | **93.3%** |
 | Overall Result | **FAIL** |
 
-## Manual Defect Found
+## Bug Found
 
-| ID | Related Test | Area | Severity | Finding |
-| --- | --- | --- | --- | --- |
-| BUG-004 | TC-015 | Accessibility / Usability | Minor | Login button is skipped during expected keyboard Tab navigation |
+| ID | Severity | Description |
+|---|---|---|
+| BUG-004 | Minor | Login button skipped during keyboard Tab navigation |
 
-### BUG-004 — Keyboard Navigation
+## Documentation
 
-**Expected:** keyboard focus should move through the login controls in a logical order, including the **Login** button.
+- `QA_CHECKLIST.md` — manual test cases and execution results
+- `SAUCEDEMO_QA_REPORT.md` — final manual QA report
+- `evidence/BUG-004.md` — detailed bug report
+- `evidence/BUG-004.png` — screenshot evidence
 
-**Actual:** during the observed manual test, focus moved through the Username and Password fields but did not move to the Login button in the expected Tab sequence.
+---
 
-**Status:** Open
+# 🔌 Project 3 — REST API Testing with Postman
 
-Detailed bug report: [`evidence/BUG-004.md`](evidence/BUG-004.md)
+## Overview
 
-Screenshot evidence:
+Manual REST API testing using **Postman** against the public **JSONPlaceholder REST API**.
 
-![BUG-004 — Login button skipped during keyboard navigation](evidence/BUG-004.png)
+This project demonstrates practical API testing skills relevant to Junior QA and Manual QA roles.
 
-## Manual QA Report
+## HTTP Methods Tested
 
-Full report: [`SAUCEDEMO_QA_REPORT.md`](SAUCEDEMO_QA_REPORT.md)
+- GET
+- POST
+- PUT
+- PATCH
+- DELETE
 
-Manual execution results: [`QA_CHECKLIST.md`](QA_CHECKLIST.md)
+## API Test Coverage
+
+The following scenarios were executed:
+
+- Retrieve all posts.
+- Retrieve a specific resource.
+- Retrieve a non-existing resource.
+- Create a resource.
+- Create an empty resource.
+- Update a resource.
+- Partially update a resource.
+- Delete a resource.
+- Filter resources using query parameters.
+- Execute a negative filtering scenario.
+
+## Test Results
+
+| Metric | Result |
+|---|---:|
+| Total Test Cases | **10** |
+| Passed | **10** |
+| Failed | **0** |
+| Blocked | **0** |
+| Pass Rate | **100%** |
+| Overall Result | **PASS** |
+
+## HTTP Status Codes Verified
+
+| Status | Meaning |
+|---|---|
+| **200 OK** | Resource retrieved or updated successfully |
+| **201 Created** | Resource created successfully |
+| **404 Not Found** | Non-existing resource handled correctly |
+
+## Project Documentation
+
+```text
+project-3-api-testing/
+├── TEST_PLAN.md
+├── API_TEST_CASES.md
+├── API_TEST_REPORT.md
+└── README.md
+```
+
+## Skills Demonstrated
+
+- REST API Testing
+- Postman
+- HTTP Methods
+- JSON Validation
+- Request / Response Validation
+- Query Parameter Testing
+- Positive Testing
+- Negative Testing
+- API Test Case Design
+- QA Documentation
+
+**Result:** ✅ **10 / 10 Test Cases Passed (100%)**
 
 ---
 
 # 📸 Evidence
 
-The repository contains screenshot evidence for detected issues:
+The repository contains screenshot evidence and detailed bug documentation.
 
 ```text
 evidence/
@@ -200,44 +235,38 @@ evidence/
 └── BUG-004.md
 ```
 
+**BUG-001 to BUG-003** belong to the automated broken-site project.  
+**BUG-004** belongs to the SauceDemo manual QA project.
+
 ---
 
 # 📁 Project Structure
 
 ```text
 AI-Freelancer/
-│
 ├── .github/
 │   └── workflows/
 │       └── qa.yml
-│
 ├── broken-site/
 │   ├── app.js
 │   ├── index.html
 │   └── styles.css
-│
 ├── evidence/
 │   ├── BUG-001.png
 │   ├── BUG-002.png
 │   ├── BUG-003.png
 │   ├── BUG-004.png
 │   └── BUG-004.md
-│
 ├── project-2-saucedemo/
-│   ├── BUG_REPORTS.md
-│   ├── QA_CHECKLIST.md
-│   ├── TEST_CASES.md
+├── project-3-api-testing/
 │   ├── TEST_PLAN.md
-│   └── tests/
-│
+│   ├── API_TEST_CASES.md
+│   ├── API_TEST_REPORT.md
+│   └── README.md
 ├── tests/
 │   ├── broken-site.spec.js
 │   ├── generate-report.js
 │   └── smoke.spec.js
-│
-├── BUG_REPORT_TEMPLATE.md
-├── CLIENT_DELIVERY_TEMPLATE.md
-├── EXECUTION_PLAN.md
 ├── QA_CHECKLIST.md
 ├── QA_TEST_REPORT.md
 ├── QA_TEST_REPORT.html
@@ -245,8 +274,7 @@ AI-Freelancer/
 ├── README.md
 ├── run-qa.ps1
 ├── package.json
-├── package-lock.json
-└── .gitignore
+└── package-lock.json
 ```
 
 ---
@@ -255,31 +283,43 @@ AI-Freelancer/
 
 ## Manual QA
 
-- Black-box testing
-- Functional testing
-- Positive and negative testing
-- End-to-end testing
-- Validation testing
-- Basic accessibility / usability testing
-- Test case execution
-- Expected vs Actual analysis
-- Bug reporting
-- Severity assessment
-- Evidence collection
-- QA documentation
+- Black-box Testing
+- Functional Testing
+- End-to-End Testing
+- Positive & Negative Testing
+- Validation Testing
+- Accessibility Testing
+- Usability Testing
+- Test Case Design
+- Test Execution
+- Bug Reporting
+- Severity Assessment
+- Evidence Collection
+- QA Documentation
+
+## API Testing
+
+- REST API Testing
+- Postman
+- HTTP Methods
+- Status Code Validation
+- JSON Validation
+- Request / Response Validation
+- Query Parameters
+- Positive & Negative API Testing
+- API Test Case Design
 
 ## QA Automation
 
 - Playwright
 - JavaScript
 - Node.js
-- Browser automation
-- Automated defect detection
-- Screenshot evidence capture
-- QA log processing
-- Automated Markdown reporting
-- Automated HTML reporting
-- PowerShell workflow automation
+- Browser Automation
+- Screenshot Capture
+- Automated Defect Detection
+- HTML Report Generation
+- Markdown Report Generation
+- PowerShell Automation
 
 ## CI / Tools
 
@@ -287,21 +327,20 @@ AI-Freelancer/
 - GitHub
 - GitHub Actions
 - VS Code
+- Postman
 - Markdown
 
 ---
 
 # 🎯 Portfolio Goal
 
-This repository is a **portfolio demonstration**, not a production-scale QA framework.
-
-It demonstrates practical entry-level QA skills relevant to roles such as:
+This repository demonstrates practical QA skills relevant to entry-level roles such as:
 
 - Junior QA Tester
 - Manual QA Tester
 - Junior Software Tester
+- API Tester
 - QA Automation Trainee
-- Junior Automation QA
 - Software Test Engineer Intern
 
 ---
@@ -309,23 +348,35 @@ It demonstrates practical entry-level QA skills relevant to roles such as:
 # 📌 Project Status
 
 | Component | Status |
-| --- | --- |
-| Manual QA | ✅ Completed |
-| Playwright automation | ✅ Working |
-| Automated defect detection | ✅ Working |
-| Screenshot evidence | ✅ Working |
-| Markdown QA report | ✅ Working |
-| HTML QA report | ✅ Working |
-| One-command workflow | ✅ Working |
-| GitHub Actions / CI | ✅ Working |
-| Portfolio documentation | ✅ Completed |
+|---|---|
+| Manual QA Testing | ✅ Completed |
+| SauceDemo Testing | ✅ Completed |
+| REST API Testing | ✅ Completed |
+| Postman API Tests | ✅ 10/10 Passed |
+| Playwright Automation | ✅ Working |
+| Automated Bug Detection | ✅ Working |
+| Screenshot Evidence | ✅ Working |
+| Markdown Reports | ✅ Working |
+| HTML Reports | ✅ Working |
+| GitHub Actions CI | Configured |
+| Portfolio Documentation | ✅ Completed |
 
-**Version: v1.5 — Manual QA + Automation Portfolio**
+**Version: v2.0 — Manual QA + REST API Testing + Automation Portfolio**
 
 ---
 
 # 👤 Author
 
-**Alexei**  
+## **Alexei**
+
 QA / Digital Technology Portfolio  
-Ireland
+📍 Ireland
+
+Transitioning into the digital sector with practical experience in:
+
+- Manual QA Testing
+- REST API Testing
+- QA Automation
+- AI Tools
+- Digital Design
+- Website Testing
