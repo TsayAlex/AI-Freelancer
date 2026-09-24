@@ -1,4 +1,4 @@
-# Test Execution Report — Playwright Automation
+﻿# Test Execution Report вЂ” Playwright Automation
 
 ## Product
 
@@ -45,3 +45,8 @@ Full automated test suite execution:
 
 ```text
 7 passed
+## Evidence
+
+The screenshot below confirms the successful execution of the full Playwright automated test suite.
+
+![Playwright automated test suite - 7 tests passed](evidence/playwright-7-tests-passed.jpg)
