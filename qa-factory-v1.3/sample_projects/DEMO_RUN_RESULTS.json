@@ -1,0 +1,228 @@
+{
+  "id": "38b7cd652229",
+  "kind": "zip",
+  "name": "BROKEN_DEMO_TEST.zip",
+  "started_at": "2026-10-09T14:09:46+00:00",
+  "status": "COMPLETED",
+  "findings": [
+    {
+      "id": "BUG-001",
+      "code": "SEO_TITLE",
+      "severity": "minor",
+      "title": "Page title missing",
+      "location": "index.html",
+      "expected": "Nonempty <title> in head",
+      "actual": "No meaningful page title",
+      "recommendation": "Add a short, descriptive title.",
+      "confidence": "high",
+      "review": "candidate",
+      "evidence": []
+    },
+    {
+      "id": "BUG-002",
+      "code": "MOBILE_VIEWPORT",
+      "severity": "major",
+      "title": "Mobile viewport not declared",
+      "location": "index.html",
+      "expected": "Viewport meta tag",
+      "actual": "Missing viewport meta",
+      "recommendation": "Add <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">.",
+      "confidence": "high",
+      "review": "candidate",
+      "evidence": []
+    },
+    {
+      "id": "BUG-003",
+      "code": "LANG",
+      "severity": "minor",
+      "title": "Page language missing",
+      "location": "index.html",
+      "expected": "Language declared on <html>",
+      "actual": "No lang attribute",
+      "recommendation": "Set the main document language (en, ru, uk, etc.).",
+      "confidence": "high",
+      "review": "candidate",
+      "evidence": []
+    },
+    {
+      "id": "BUG-004",
+      "code": "SEO_DESCRIPTION",
+      "severity": "minor",
+      "title": "Meta description missing",
+      "location": "index.html",
+      "expected": "Useful page description",
+      "actual": "No description meta tag",
+      "recommendation": "Write a short description of this page.",
+      "confidence": "high",
+      "review": "candidate",
+      "evidence": []
+    },
+    {
+      "id": "BUG-005",
+      "code": "H1_MISSING",
+      "severity": "minor",
+      "title": "Primary heading missing",
+      "location": "index.html",
+      "expected": "A descriptive H1 heading",
+      "actual": "No H1 was found",
+      "recommendation": "Add one meaningful primary heading.",
+      "confidence": "high",
+      "review": "candidate",
+      "evidence": []
+    },
+    {
+      "id": "BUG-006",
+      "code": "IMAGE_ALT",
+      "severity": "minor",
+      "title": "Image has no alt attribute",
+      "location": "index.html:2",
+      "expected": "alt attribute present",
+      "actual": "No alt attribute",
+      "recommendation": "Use meaningful alternative text; decorative images may use alt=\"\".",
+      "confidence": "high",
+      "review": "candidate",
+      "evidence": []
+    },
+    {
+      "id": "BUG-007",
+      "code": "EMAIL_TYPE",
+      "severity": "minor",
+      "title": "Email field uses non-email input type",
+      "location": "index.html:2",
+      "expected": "type=\"email\" for basic browser validation",
+      "actual": "type=\"text\"",
+      "recommendation": "Use type=\"email\" plus server-side validation.",
+      "confidence": "high",
+      "review": "candidate",
+      "evidence": []
+    },
+    {
+      "id": "BUG-008",
+      "code": "BROKEN_REFERENCE",
+      "severity": "major",
+      "title": "Missing local file referenced",
+      "location": "index.html:2",
+      "expected": "Referenced file exists in ZIP",
+      "actual": "about.html",
+      "recommendation": "Provide missing asset/page or correct path (link).",
+      "confidence": "high",
+      "review": "candidate",
+      "evidence": []
+    },
+    {
+      "id": "BUG-009",
+      "code": "BROKEN_REFERENCE",
+      "severity": "major",
+      "title": "Missing local file referenced",
+      "location": "index.html:2",
+      "expected": "Referenced file exists in ZIP",
+      "actual": "missing.html",
+      "recommendation": "Provide missing asset/page or correct path (link).",
+      "confidence": "high",
+      "review": "candidate",
+      "evidence": []
+    },
+    {
+      "id": "BUG-010",
+      "code": "BROKEN_REFERENCE",
+      "severity": "major",
+      "title": "Missing local file referenced",
+      "location": "index.html:2",
+      "expected": "Referenced file exists in ZIP",
+      "actual": "missing-image.png",
+      "recommendation": "Provide missing asset/page or correct path (image).",
+      "confidence": "high",
+      "review": "candidate",
+      "evidence": []
+    },
+    {
+      "id": "BUG-011",
+      "code": "BROKEN_IMAGES",
+      "severity": "major",
+      "title": "Browser image unavailable",
+      "location": "index.html (desktop)",
+      "expected": "Visible images rendered successfully",
+      "actual": "1 broken images",
+      "recommendation": "Check file references. Remote images are blocked in safe preview.",
+      "confidence": "medium",
+      "review": "candidate",
+      "evidence": [
+        "desktop.png"
+      ]
+    },
+    {
+      "id": "BUG-012",
+      "code": "EMAIL_BROWSER_VALIDATION",
+      "severity": "minor",
+      "title": "Invalid email passes native field validation",
+      "location": "index.html (desktop)",
+      "expected": "Malformed email rejected by native validation",
+      "actual": "not-an-email considered valid by browser field validation",
+      "recommendation": "Use type=email and validate again on the server; custom submit handlers were not exercised.",
+      "confidence": "medium",
+      "review": "candidate",
+      "evidence": [
+        "desktop.png"
+      ]
+    },
+    {
+      "id": "BUG-013",
+      "code": "BROKEN_IMAGES",
+      "severity": "major",
+      "title": "Browser image unavailable",
+      "location": "index.html (mobile)",
+      "expected": "Visible images rendered successfully",
+      "actual": "1 broken images",
+      "recommendation": "Check file references. Remote images are blocked in safe preview.",
+      "confidence": "medium",
+      "review": "candidate",
+      "evidence": [
+        "mobile.png"
+      ]
+    },
+    {
+      "id": "BUG-014",
+      "code": "EMAIL_BROWSER_VALIDATION",
+      "severity": "minor",
+      "title": "Invalid email passes native field validation",
+      "location": "index.html (mobile)",
+      "expected": "Malformed email rejected by native validation",
+      "actual": "not-an-email considered valid by browser field validation",
+      "recommendation": "Use type=email and validate again on the server; custom submit handlers were not exercised.",
+      "confidence": "medium",
+      "review": "candidate",
+      "evidence": [
+        "mobile.png"
+      ]
+    }
+  ],
+  "checked": [
+    "index.html",
+    "index.html [Chromium desktop 1365x768]",
+    "index.html [Chromium mobile 390x844]"
+  ],
+  "warnings": [
+    "Browser preview is in-memory and offline (desktop/mobile). External assets and API calls are blocked; it is not a full deployed-app functional test."
+  ],
+  "metrics": {
+    "files_total": 1,
+    "files_read": 1,
+    "files_skipped": 0,
+    "html_pages": 1,
+    "archive_kb": 0.7,
+    "severity": {
+      "critical": 0,
+      "major": 6,
+      "minor": 8,
+      "info": 0
+    },
+    "findings_total": 14,
+    "checks_recorded": 3
+  },
+  "evidence": [
+    "desktop.png",
+    "mobile.png"
+  ],
+  "disclaimer": "Automated checks are partial. Findings need human validation; no absence-of-bugs guarantee.",
+  "quality_gate": "REVIEW_REQUIRED"
+}

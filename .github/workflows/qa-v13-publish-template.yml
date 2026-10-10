@@ -1,0 +1,39 @@
+name: QA Factory v1.3 (standalone folder)
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'qa-factory-v1.3/**'
+      - '.github/workflows/qa-v13-publish-template.yml'
+  pull_request:
+    paths:
+      - 'qa-factory-v1.3/**'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: qa-factory-v1.3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Unit and integration tests
+        run: python -m unittest discover -s tests -p 'test*.py'
+      - name: Scan test fixtures only (NO PRIVATE CUSTOMER ZIPs)
+        run: python qa_pipeline.py once --inbox QA_INBOX --output QA_RESULTS
+      - name: Upload public repository QA evidence - review visibility
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-v13-ci-report
+          path: qa-factory-v1.3/QA_RESULTS/
+          retention-days: 7
+          if-no-files-found: warn

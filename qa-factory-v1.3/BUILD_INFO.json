@@ -1,0 +1,14 @@
+{
+  "product": "ALEX AI QA FACTORY",
+  "version": "1.3.0",
+  "build_date": "2026-10-09",
+  "modules": [
+    "v1.2 ZIP Autopilot",
+    "v1.3 Game Regression Lab",
+    "v1.3 Release Gate",
+    "v1.3 Private Client Portal"
+  ],
+  "verification": "28/28 internal tests; 14 real release ZIPs; 1 blocked, 13 hold; see separate evidence pack",
+  "github_status": "read access verified, write operations 403 denied",
+  "security": "local only, not public SaaS; explicit opt-in for browser JS execution"
+}
