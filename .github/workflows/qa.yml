@@ -9,9 +9,13 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   qa-tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repository
@@ -30,7 +34,9 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Run QA automation and save log
+        shell: bash
         run: |
+          set -o pipefail
           npx playwright test tests/broken-site.spec.js --reporter=list 2>&1 | tee QA_RUN_OUTPUT_NEW.txt
 
       - name: Generate QA reports
